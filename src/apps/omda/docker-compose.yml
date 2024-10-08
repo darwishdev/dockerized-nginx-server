@@ -1,0 +1,13 @@
+services:
+   elomda_bus:
+    image: exploremelon/elomda_bus:0.0.11
+    container_name: elomda_bus
+    volumes: 
+      - ./settings.py:/app/pizza/settings.py
+    restart: always
+    networks:
+      - nginx
+networks:
+   nginx:
+      external: true
+

@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt
+      - ./conf.d:/etc/nginx/conf.d/:ro
+    ports:
+      - "81:80"
+      - "4433:443"
+
+networks:
+  default:
+    external: true
+    name: nginx
